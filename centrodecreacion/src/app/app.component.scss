@@ -1,0 +1,100 @@
+
+//CSS GRID
+.container {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(4, minmax(auto, 1fr));
+  grid-template-rows: repeat(8, minmax(auto, 65px));
+  max-width: 1200px;
+  width: 100%;
+  height: 95%;
+}
+.login {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(2, minmax(auto, 1fr));
+  grid-template-rows: repeat(6, minmax(auto, 65px));
+}
+.logo {
+  grid-column: span 2;
+  grid-row: 3 / 7;
+}
+.login {
+  grid-column: 3 / 5;
+  grid-row: 2 / 8;
+}
+.login .img-usuario {
+  grid-column: span 2;
+  grid-row: 1 / 2;
+}
+.login .titulo {
+  grid-column: span 2;
+  grid-row: 2 / 3;
+}
+.input-usuario {
+  grid-column: span 2;
+  grid-row: 3 / 4;
+}
+.input-clave {
+  grid-column: span 2;
+  grid-row: 4 / 5;
+}
+.boton {
+  grid-column: span 2;
+  grid-row: 5 / 6;
+}
+
+//ESTILOS
+.logo img {
+  width: 70%;
+  height: 100%;
+}
+.img-usuario img {
+  width: 65px;
+  height: 90%;
+}
+.img-usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo, .titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-usuario, .input-clave, .boton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+mat-form-field {
+  width: 100%;
+}
+.login {
+  width: 100%;
+  height: 100%;
+  background: rgb(44, 44, 44);
+  border-radius: 15px;
+  -webkit-box-shadow: inset 0px 5px 12px 1px rgba(255,255,255,1);
+  -moz-box-shadow: inset 0px 5px 12px 1px rgba(255,255,255,1);
+  box-shadow: inset 0px 5px 12px 1px rgba(255,255,255,1);
+}
+.login p {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.25em;
+}
+mat-label {
+  font-family: 'Comfortaa', cursive;
+}
+input {
+  font-family: 'Comfortaa', cursive;
+  &::placeholder {
+    color: rgb(177, 177, 177);
+  }
+}
+p, mat-label, mat-form-field, mat-icon {
+  color: white;
+}
+

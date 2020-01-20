@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="buscador">
+    <mat-form-field appearance="outline" *ngIf="!tipoBusqueda.value" >
+      <mat-label>Buscar por DUI</mat-label>
+      <input type="text" matInput placeholder="Buscando Empleado ...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="tipoBusqueda.value == 'DUI'" >
+      <mat-label>Buscar por DUI</mat-label>
+      <input type="text" matInput placeholder="Buscando Empleado ...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="tipoBusqueda.value == 'Nombre'" >
+      <mat-label>Buscar por Nombre</mat-label>
+      <input type="text" matInput placeholder="Buscando Empleado ...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="tipoBusqueda.value == 'Fecha Entrada'" class="example-form-field">
+      <mat-label>Buscar por Fecha Entrada</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Buscando Empleado ...">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" *ngIf="tipoBusqueda.value == 'Fecha Despido'" class="example-form-field">
+      <mat-label>Buscar por Fecha Despido</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="Buscando Empleado ...">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker touchUi #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="tipos-buscadores">
+    <mat-button-toggle-group #tipoBusqueda="matButtonToggleGroup">
+      <mat-button-toggle value="DUI" matTooltip="Buscar Empleado por N° de DUI" matTooltipPosition="below">
+        <mat-icon>fingerprint</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="Nombre" matTooltip="Buscar Empleado por su Nombre" matTooltipPosition="below">
+        <mat-icon>person_pin</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="Fecha Entrada" matTooltip="Buscar Empleado por Fecha de Entrada a la Empresa" matTooltipPosition="below">
+        <mat-icon>event</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="Fecha Despido" matTooltip="Buscar Empleado por Fecha de Despido de la Empresa" matTooltipPosition="below">
+        <mat-icon>date_range</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <div class="example-selected-value" *ngIf="tipoBusqueda.value">Buscando por: <strong>{{tipoBusqueda.value}}</strong></div>
+  </div>
+  <div class="lista-empleados">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            DUI : 612302876-2
+          </mat-panel-title>
+          <mat-panel-description>
+            Juan Perez
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-action-row>
+          <button mat-raised-button class="btn-ver" (click)="VerPerfil()">
+            Ver Perfil
+          </button>
+          <button mat-raised-button class="btn-ver" (click)="VerCurriculumPDF()">
+            Ver Curriculum
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            DUI : 312302876-3
+          </mat-panel-title>
+          <mat-panel-description>
+            Albery Arteaga
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-action-row>
+          <button mat-raised-button class="btn-ver" (click)="VerPerfil()">
+            Ver Perfil
+          </button>
+          <button mat-raised-button class="btn-ver" (click)="VerCurriculumPDF()">
+            Ver Curriculum
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            DUI : 812302876-6
+          </mat-panel-title>
+          <mat-panel-description>
+            Fernando Villalta
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-action-row>
+          <button mat-raised-button class="btn-ver" (click)="VerPerfil()">
+            Ver Perfil
+          </button>
+          <button mat-raised-button class="btn-ver" (click)="VerCurriculumPDF()">
+            Ver Curriculum
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+

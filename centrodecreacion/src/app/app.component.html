@@ -1,0 +1,37 @@
+<div class="menu" *ngIf="!siguientePagina">
+  <app-menu></app-menu>
+</div>
+<div class="container" *ngIf="siguientePagina">
+  <div class="logo">
+    <img src="../assets/82202537_472418643432808_2375364068581048320_n.jpg" alt="">
+  </div>
+  <div class="login">
+    <div class="img-usuario">
+      <img src="http://emser.es/wp-content/uploads/2016/08/usuario-sin-foto.png" alt="">
+    </div>
+    <div class="titulo">
+      <p>Centro de Negocios S.A de C.V</p>
+    </div>
+    <div class="input-usuario">
+      <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input class="inputLogin" required type="text" matInput placeholder="Ingrese Usuario">
+        <mat-error>Error</mat-error>
+        <mat-icon matSuffix>person_pin</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="input-clave">
+      <mat-form-field appearance="outline">
+        <mat-label>Clave</mat-label>
+        <input required class="inputLogin" matInput placeholder="Ingrese Clave" [type]="!hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error>Error</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="boton">
+      <button mat-raised-button class="btn-ver" (click)="Login()">Iniciar Sesion</button>
+    </div>
+  </div>
+</div>

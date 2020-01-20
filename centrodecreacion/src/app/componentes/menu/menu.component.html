@@ -1,0 +1,53 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav  #sidenav mode="side" id="navbar-high" class="app-sidenav">
+    <mat-toolbar  class="toolbar" color="primary">
+      <!--<span class="toolbar-filler">{{usuario ? usuario.usuario : ''}}</span>-->
+      <span class="toolbar-filler">Albery Arteaga</span>
+      <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="!sidenav.opened">
+        <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <!--(click)="sidenav.toggle()"  evento al dar click-->
+      <a mat-list-item (click)="getTitulo(' Empleados')" class="sidenav-link" [routerLink]="['/empleados']"
+          matTooltip="Todos los empleados debidamente registrados" matTooltipPosition="right">
+        <mat-icon mat-list-icon>people</mat-icon>
+        <span class="title" mat-line>Empleados</span>
+        <span mat-line class="secondary">Perfil de cada empleado</span>
+      </a>
+      <!--(click)="sidenav.toggle()"  evento al dar click-->
+      <a mat-list-item (click)="getTitulo('Registro de Empleado')" class="sidenav-link" [routerLink]="['/registro']"
+          matTooltip="Registrar un Empleado" matTooltipPosition="right">
+        <mat-icon mat-list-icon>emoji_people</mat-icon>
+        <span class="title" mat-line>Registro</span>
+        <span mat-line class="secondary">Agregar y Editar un Empleado</span>
+      </a>
+      <!--(click)="sidenav.toggle()"  evento al dar click-->
+      <a mat-list-item (click)="getTitulo('Bitacora')" class="sidenav-link" [routerLink]="['/bitacora']"
+          matTooltip="Ver Todos los Registros de Actividad en el Sistema" matTooltipPosition="right">
+        <mat-icon mat-list-icon>menu_book</mat-icon>
+        <span class="title" mat-line>Bitacora</span>
+        <span mat-line class="secondary">Registro de Actividades</span>
+      </a>
+      <!--(click)="sidenav.toggle()"  evento al dar click-->
+      <a mat-list-item (click)="getTitulo('Mi Perfil')" class="sidenav-link" [routerLink]="['/perfil']"
+          matTooltip="Ver y Modificar mis Datos Personales" matTooltipPosition="right">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <span class="title" mat-line>Mi Perfil</span>
+        <span mat-line class="secondary">Mis Datos Personales</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar id="appToolbar" [ngClass]="{'toolbar-fullscreen': (fullscreen$ | async)}" color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button" [hidden]="sidenav.opened">
+      <mat-icon aria-label="Menu" class="material-icons" id="menuicon">menu</mat-icon>
+    </button>
+    <h1 class="component-title">
+      <a class="title-link">{{title}}</a>
+    </h1>
+    <span class="toolbar-filler"></span>
+    <!--<button id="button-login" md-button [routerLink]="['/signupin']" *ngIf="!(user | async)">Log In</button>-->
+    <button id="button-logout" mat-flat-button>Salir</button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
